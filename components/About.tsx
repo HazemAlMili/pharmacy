@@ -79,7 +79,7 @@ export default function About() {
 
           <div className={styles.imageContainer}>
             <img
-              src="/professional-pharmacist-consulting-with-patient.png"
+              src="/About.jpg"
               alt="Pharmacist consulting with patient"
               className={styles.aboutImage}
             />

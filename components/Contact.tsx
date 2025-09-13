@@ -86,7 +86,7 @@ export default function Contact() {
               <div className={styles.infoContent}>
                 <h3>Address</h3>
                 <p>
-                  123 Healthcare Avenue
+                  Alahram Gardens
                   <br />
                   Medical District, City 12345
                 </p>
@@ -109,11 +109,7 @@ export default function Contact() {
               <div className={styles.infoIcon}>✉️</div>
               <div className={styles.infoContent}>
                 <h3>Email</h3>
-                <p>
-                  info@healthcarepharmacy.com
-                  <br />
-                  support@healthcarepharmacy.com
-                </p>
+                <p>alaminpharmacy54@gmail.com</p>
               </div>
             </div>
 
@@ -183,7 +179,7 @@ export default function Contact() {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="message">Message</label>
+                <label htmlFor="message">Message Or Orders</label>
                 <textarea
                   name="message"
                   rows={5}

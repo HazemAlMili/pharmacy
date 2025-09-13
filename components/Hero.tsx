@@ -61,7 +61,7 @@ export default function Hero() {
         {/* الصورة */}
         <motion.div className={styles.imageContainer} variants={fadeInRight}>
           <img
-            src="/modern-pharmacy-interior-with-professional-staff.png"
+            src="/hero.png"
             alt="Modern pharmacy interior"
             className={styles.heroImage}
           />
