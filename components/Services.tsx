@@ -1,43 +1,46 @@
 "use client";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 import styles from "./Services.module.css";
 
 export default function Services() {
+  const [isClient, setIsClient] = useState(false);
+  const t = useTranslations("services");
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const services = [
     {
-      title: "Prescription Services",
-      description:
-        "Professional dispensing of prescription medications with thorough consultation and safety checks.",
+      title: t("prescriptionTitle"),
+      description: t("prescriptionDesc"),
       icon: "💊",
     },
     {
-      title: "Health Consultations",
-      description:
-        "Expert advice on medications, health conditions, and wellness strategies from certified pharmacists.",
+      title: t("consultationTitle"),
+      description: t("consultationDesc"),
       icon: "🩺",
     },
     {
-      title: "Medication Management",
-      description:
-        "Comprehensive medication reviews and management plans to optimize your treatment outcomes.",
+      title: t("managementTitle"),
+      description: t("managementDesc"),
       icon: "📋",
     },
     {
-      title: "Immunizations",
-      description:
-        "Professional vaccination services including flu shots, travel vaccines, and routine immunizations.",
+      title: t("immunizationTitle"),
+      description: t("immunizationDesc"),
       icon: "💉",
     },
     {
-      title: "Health Screenings",
-      description:
-        "Regular health monitoring including blood pressure, cholesterol, and diabetes screenings.",
+      title: t("screeningTitle"),
+      description: t("screeningDesc"),
       icon: "🔍",
     },
     {
-      title: "Compounding Services",
-      description:
-        "Custom medication preparation tailored to individual patient needs and specifications.",
+      title: t("compoundingTitle"),
+      description: t("compoundingDesc"),
       icon: "⚗️",
     },
   ];
@@ -62,6 +65,19 @@ export default function Services() {
     },
   };
 
+  if (!isClient) {
+    return (
+      <section id="services" className={styles.services}>
+        <div className={styles.container}>
+          <div className={styles.header}>
+            <h2 className={styles.title}>Loading...</h2>
+            <p className={styles.subtitle}>Loading...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <motion.section
       id="services"
@@ -73,10 +89,8 @@ export default function Services() {
     >
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>Our Services</h2>
-          <p className={styles.subtitle}>
-            Comprehensive pharmaceutical care tailored to your health needs
-          </p>
+          <h2 className={styles.title}>{t("title")}</h2>
+          <p className={styles.subtitle}>{t("subtitle")}</p>
         </div>
 
         <motion.div

@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "features": "Features",
+    "products": "Products",
+    "contact": "Contact"
+  },
+  "buttons": {
+    "explore": "Explore Our Services",
+    "send": "Send Message"
+  }
+}

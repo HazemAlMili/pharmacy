@@ -42,6 +42,7 @@
   position: relative;
   /* Added smooth scrolling behavior for anchor links */
   scroll-behavior: smooth;
+  cursor: pointer;
 }
 
 .navLinks li a:hover {
@@ -101,10 +102,12 @@
   }
 
   .navLinks li {
-    margin: 1rem 0;
+    margin: 0.5rem;
   }
 
   .menuToggle {
     display: flex;
   }
 }
+
+

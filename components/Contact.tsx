@@ -1,10 +1,17 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import { useTranslations } from "next-intl";
 import styles from "./Contact.module.css";
 
 export default function Contact() {
+  const [isClient, setIsClient] = useState(false);
+  const t = useTranslations("contact");
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   const form = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,16 +26,16 @@ export default function Contact() {
     const newErrors: { [key: string]: string } = {};
 
     if (!nameRegex.test(formData.get("user_name") as string)) {
-      newErrors["user_name"] = "❌ Name must be 3-30 letters only.";
+      newErrors["user_name"] = t("nameError");
     }
     if (!emailRegex.test(formData.get("user_email") as string)) {
-      newErrors["user_email"] = "❌ Invalid email address.";
+      newErrors["user_email"] = t("emailError");
     }
     if (
       formData.get("user_phone") &&
       !phoneRegex.test(formData.get("user_phone") as string)
     ) {
-      newErrors["user_phone"] = "❌ Phone must be 8-15 digits.";
+      newErrors["user_phone"] = t("phoneError");
     }
 
     setErrors(newErrors);
@@ -56,26 +63,36 @@ export default function Contact() {
       )
       .then(
         () => {
-          setStatus("✅ Message sent successfully!");
+          setStatus(t("successMessage"));
           form.current?.reset();
         },
         (error) => {
-          setStatus("❌ Failed to send message. Try again.");
+          setStatus(t("errorMessage"));
           console.error(error);
         }
       )
       .finally(() => setLoading(false));
   };
 
+  if (!isClient) {
+    return (
+      <section id="contact" className={styles.contact}>
+        <div className={styles.container}>
+          <div className={styles.header}>
+            <h2 className={styles.title}>Loading...</h2>
+            <p className={styles.subtitle}>Loading...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="contact" className={styles.contact}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>Contact Us</h2>
-          <p className={styles.subtitle}>
-            Get in touch with our healthcare professionals for any questions or
-            concerns
-          </p>
+          <h2 className={styles.title}>{t("title")}</h2>
+          <p className={styles.subtitle}>{t("subtitle")}</p>
         </div>
 
         <div className={styles.contactContent}>
@@ -84,11 +101,16 @@ export default function Contact() {
             <div className={styles.infoCard}>
               <div className={styles.infoIcon}>📍</div>
               <div className={styles.infoContent}>
-                <h3>Address</h3>
+                <h3>{t("addressTitle")}</h3>
                 <p>
-                  Alahram Gardens
-                  <br />
-                  Medical District, City 12345
+                  {t("address")
+                    .split("\n")
+                    .map((line, index) => (
+                      <span key={index}>
+                        {line}
+                        {index < t("address").split("\n").length - 1 && <br />}
+                      </span>
+                    ))}
                 </p>
               </div>
             </div>
@@ -96,11 +118,16 @@ export default function Contact() {
             <div className={styles.infoCard}>
               <div className={styles.infoIcon}>📞</div>
               <div className={styles.infoContent}>
-                <h3>Phone</h3>
+                <h3>{t("phoneTitle")}</h3>
                 <p>
-                  Main: (555) 123-4567
-                  <br />
-                  Emergency: (555) 987-6543
+                  {t("phone")
+                    .split("\n")
+                    .map((line, index) => (
+                      <span key={index}>
+                        {line}
+                        {index < t("phone").split("\n").length - 1 && <br />}
+                      </span>
+                    ))}
                 </p>
               </div>
             </div>
@@ -108,21 +135,24 @@ export default function Contact() {
             <div className={styles.infoCard}>
               <div className={styles.infoIcon}>✉️</div>
               <div className={styles.infoContent}>
-                <h3>Email</h3>
-                <p>alaminpharmacy54@gmail.com</p>
+                <h3>{t("emailTitle")}</h3>
+                <p>{t("email")}</p>
               </div>
             </div>
 
             <div className={styles.infoCard}>
               <div className={styles.infoIcon}>🕒</div>
               <div className={styles.infoContent}>
-                <h3>Working Hours</h3>
+                <h3>{t("hoursTitle")}</h3>
                 <p>
-                  Monday - Friday: 8:00 AM - 8:00 PM
-                  <br />
-                  Saturday: 9:00 AM - 6:00 PM
-                  <br />
-                  Sunday: 10:00 AM - 4:00 PM
+                  {t("hours")
+                    .split("\n")
+                    .map((line, index) => (
+                      <span key={index}>
+                        {line}
+                        {index < t("hours").split("\n").length - 1 && <br />}
+                      </span>
+                    ))}
                 </p>
               </div>
             </div>
@@ -132,7 +162,7 @@ export default function Contact() {
           <div className={styles.contactForm}>
             <form ref={form} onSubmit={sendEmail} className={styles.form}>
               <div className={styles.formGroup}>
-                <label htmlFor="name">Full Name</label>
+                <label htmlFor="name">{t("formName")}</label>
                 <input
                   type="text"
                   name="user_name"
@@ -144,7 +174,7 @@ export default function Contact() {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="email">Email Address</label>
+                <label htmlFor="email">{t("formEmail")}</label>
                 <input
                   type="email"
                   name="user_email"
@@ -156,7 +186,7 @@ export default function Contact() {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="phone">Phone Number</label>
+                <label htmlFor="phone">{t("formPhone")}</label>
                 <input
                   type="tel"
                   name="user_phone"
@@ -168,18 +198,22 @@ export default function Contact() {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="subject">Subject</label>
+                <label htmlFor="subject">{t("formSubject")}</label>
                 <select name="user_subject" className={styles.formSelect}>
-                  <option value="">Select a subject</option>
-                  <option value="prescription">Prescription Inquiry</option>
-                  <option value="consultation">Health Consultation</option>
-                  <option value="delivery">Delivery Service</option>
-                  <option value="general">General Question</option>
+                  <option value="">{t("selectSubject")}</option>
+                  <option value="prescription">
+                    {t("prescriptionOption")}
+                  </option>
+                  <option value="consultation">
+                    {t("consultationOption")}
+                  </option>
+                  <option value="delivery">{t("deliveryOption")}</option>
+                  <option value="general">{t("generalOption")}</option>
                 </select>
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="message">Message Or Orders</label>
+                <label htmlFor="message">{t("formMessage")}</label>
                 <textarea
                   name="message"
                   rows={5}
@@ -196,7 +230,7 @@ export default function Contact() {
                 {loading ? (
                   <span className={styles.spinner}></span>
                 ) : (
-                  "Send Message"
+                  t("sendButton")
                 )}
               </button>
 

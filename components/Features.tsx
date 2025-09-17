@@ -1,43 +1,47 @@
 import { useEffect, useState, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import styles from "./Features.module.css";
 
 export default function Features() {
+  // const [isClient, setIsClient] = useState(false);
+  const t = useTranslations("features");
+
+  // useEffect(() => {
+  //   setIsClient(true);
+  // }, []);
+
   const features = [
     {
-      title: "Fast Delivery",
-      description:
-        "Quick and reliable medication delivery service to your doorstep within 24 hours.",
+      title: t("deliveryTitle"),
+      description: t("deliveryDesc"),
       icon: "🚚",
     },
     {
-      title: "Trusted Products",
-      description:
-        "Only authentic, high-quality medications from certified manufacturers and suppliers.",
+      title: t("trustedTitle"),
+      description: t("trustedDesc"),
       icon: "🏆",
     },
     {
-      title: "Professional Staff",
-      description:
-        "Licensed pharmacists and healthcare professionals with years of experience and expertise.",
+      title: t("staffTitle"),
+      description: t("staffDesc"),
       icon: "👨‍⚕️",
     },
     {
-      title: "24/7 Support",
-      description:
-        "Round-the-clock customer support for urgent medication needs and health consultations.",
+      title: t("supportTitle"),
+      description: t("supportDesc"),
       icon: "📞",
     },
   ];
 
   const statsData = useMemo(
     () => [
-      { number: 10, label: "Years of Service", suffix: "+" },
-      { number: 5000, label: "Happy Customers", suffix: "+" },
-      { number: 50, label: "Healthcare Products", suffix: "+" },
-      { number: 24, label: "Customer Support", suffix: "/7" },
+      { number: 10, label: t("yearsService"), suffix: "+" },
+      { number: 5000, label: t("happyCustomers"), suffix: "+" },
+      { number: 50, label: t("healthcareProducts"), suffix: "+" },
+      { number: 24, label: t("customerSupport"), suffix: "/7" },
     ],
-    []
+    [t]
   );
 
   const [counts, setCounts] = useState(statsData.map(() => 0));
@@ -98,6 +102,19 @@ export default function Features() {
     }),
   };
 
+  // if (!isClient) {
+  //   return (
+  //     <section id="features" className={styles.features}>
+  //       <div className={styles.container}>
+  //         <div className={styles.header}>
+  //           <h2 className={styles.title}>Loading...</h2>
+  //           <p className={styles.subtitle}>Loading...</p>
+  //         </div>
+  //       </div>
+  //     </section>
+  //   );
+  // }
+
   return (
     <motion.section
       id="features"
@@ -110,11 +127,8 @@ export default function Features() {
     >
       <motion.div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>Why Choose Us</h2>
-          <p className={styles.subtitle}>
-            Discover what makes HealthCare Pharmacy your best choice for
-            pharmaceutical care
-          </p>
+          <h2 className={styles.title}>{t("title")}</h2>
+          <p className={styles.subtitle}>{t("subtitle")}</p>
         </div>
 
         {/* Grid Features مع fade in right */}

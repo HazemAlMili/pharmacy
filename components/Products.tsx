@@ -1,50 +1,53 @@
 "use client";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 import styles from "./Products.module.css";
 import Image from "next/image";
 
 export default function Products() {
+  const [isClient, setIsClient] = useState(false);
+  const t = useTranslations("products");
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const products = [
     {
-      name: "Pain Relief Medications",
-      category: "Over-the-Counter",
-      description:
-        "Effective pain management solutions including acetaminophen, ibuprofen, and aspirin.",
+      name: t("painReliefName"),
+      category: t("painReliefCategory"),
+      description: t("painReliefDesc"),
       image: "/Pain Relief Medications.jpg",
     },
     {
-      name: "Vitamins & Supplements",
-      category: "Wellness",
-      description:
-        "Complete range of vitamins, minerals, and dietary supplements for optimal health.",
+      name: t("vitaminsName"),
+      category: t("vitaminsCategory"),
+      description: t("vitaminsDesc"),
       image: "/Vitamins & Supplements.jpg",
     },
     {
-      name: "Cold & Flu Remedies",
-      category: "Seasonal Care",
-      description:
-        "Comprehensive cold and flu treatments to help you recover faster.",
+      name: t("coldFluName"),
+      category: t("coldFluCategory"),
+      description: t("coldFluDesc"),
       image: "/Cold & Flu Remedies.jpg",
     },
     {
-      name: "Diabetes Care",
-      category: "Chronic Conditions",
-      description:
-        "Blood glucose monitors, test strips, and diabetes management supplies.",
+      name: t("diabetesName"),
+      category: t("diabetesCategory"),
+      description: t("diabetesDesc"),
       image: "/Diabetes Care.jpg",
     },
     {
-      name: "Heart Health",
-      category: "Cardiovascular",
-      description:
-        "Medications and supplements supporting cardiovascular health and wellness.",
+      name: t("heartName"),
+      category: t("heartCategory"),
+      description: t("heartDesc"),
       image: "/Heart Health.jpg",
     },
     {
-      name: "Skin Care Products",
-      category: "Dermatology",
-      description:
-        "Therapeutic skin care solutions for various skin conditions and concerns.",
+      name: t("skinName"),
+      category: t("skinCategory"),
+      description: t("skinDesc"),
       image: "/Skin Care Products.jpg",
     },
   ];
@@ -62,6 +65,19 @@ export default function Products() {
     }),
   };
 
+  if (!isClient) {
+    return (
+      <section id="products" className={styles.products}>
+        <div className={styles.container}>
+          <div className={styles.header}>
+            <h2 className={styles.title}>Loading...</h2>
+            <p className={styles.subtitle}>Loading...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <motion.section
       id="products"
@@ -72,11 +88,8 @@ export default function Products() {
     >
       <div className={styles.container}>
         <motion.div className={styles.header} variants={fadeInUp} custom={0}>
-          <h2 className={styles.title}>Our Products</h2>
-          <p className={styles.subtitle}>
-            Quality healthcare products and medications for all your health
-            needs
-          </p>
+          <h2 className={styles.title}>{t("title")}</h2>
+          <p className={styles.subtitle}>{t("subtitle")}</p>
         </motion.div>
 
         <div className={styles.productsGrid}>
@@ -115,9 +128,7 @@ export default function Products() {
           custom={products.length + 1}
         >
           <p>
-            <strong>Disclaimer:</strong> This is a product showcase only. Please
-            consult with our pharmacists for proper medication guidance and
-            prescription requirements.
+            <strong>{t("disclaimer")}</strong>
           </p>
         </motion.div>
       </div>

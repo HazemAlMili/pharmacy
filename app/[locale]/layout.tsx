@@ -2,22 +2,27 @@ import type React from "react";
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { cairo } from "./fonts";
-
 import { Analytics } from "@vercel/analytics/next";
 import { Suspense } from "react";
-import { NextIntlClientProvider } from "next-intl"; // 🟢 استخدام next-intl
+import { cairo } from "../fonts";
+import { NextIntlClientProvider } from "next-intl"; // ✅ لدعم الترجمة
+import "../globals.css";
 import { getMessages } from "next-intl/server";
-import "./globals.css";
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Healthcare App",
-  description: "Created with Next.js and next-intl",
+  title: "v0 App",
+  description: "Created with v0",
   generator: "v0.app",
 };
 
 const geistSans = GeistSans.variable;
 const geistMono = GeistMono.variable;
+
+// ✅ اللغات المدعومة
+export function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "ar" }];
+}
 
 export default async function RootLayout({
   children,
@@ -27,13 +32,19 @@ export default async function RootLayout({
   params: { locale: string };
 }) {
   const locale = params.locale || "en";
+
+  // Validate locale
+  if (!["en", "ar"].includes(locale)) {
+    notFound();
+  }
+
   const messages = await getMessages({ locale });
 
   return (
     <html
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
-      className={` ${cairo.variable}${geistSans} ${geistMono} antialiased`}
+      className={`${cairo.variable} ${geistSans} ${geistMono} antialiased`}
     >
       <body>
         <Suspense fallback={<div>Loading...</div>}>
@@ -72,7 +83,6 @@ export default async function RootLayout({
               </div>
               <div className="heartbeat-pulse"></div>
             </div>
-
             {children}
             <Analytics />
           </NextIntlClientProvider>
