@@ -24,9 +24,10 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>; // Updated to match [locale]/layout.tsx
 }) {
-  const locale = params.locale || "en";
+  // First await the entire params object
+  const { locale } = await params || { locale: "en" };
   const messages = await getMessages({ locale });
 
   return (
@@ -38,7 +39,7 @@ export default async function RootLayout({
     >
       <body>
         <Suspense fallback={<div>Loading...</div>}>
-          <NextIntlClientProvider locale={params.locale} messages={messages}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
             <div className="animated-background">
               <div className="gradient-overlay"></div>
               <div className="floating-shapes">
