@@ -30,6 +30,7 @@ export default async function RootLayout({
   const messages = await getMessages({ locale });
 
   return (
+    // In your root layout.tsx
     <html
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}

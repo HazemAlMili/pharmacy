@@ -8,12 +8,19 @@
     "visionText": "To be the leading pharmacy in providing innovative healthcare solutions and building lasting relationships with our patients.",
     "button": "Explore Our Services"
   },
+  "offers": {
+    "title": "Special Offers",
+    "subtitle": "Take advantage of our limited-time promotions and exclusive deals",
+    "validUntil": "Valid Until",
+    "disclaimer": "Disclaimer: Offers are subject to availability and may change without prior notice. Cannot be combined with other promotions unless specified."
+  },
   "nav": {
     "home": "Home",
     "about": "About",
     "services": "Services",
     "features": "Features",
     "products": "Products",
+    "offers": "Offers",
     "contact": "Contact"
   },
   "buttons": {

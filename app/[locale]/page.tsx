@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Features from "@/components/Features";
 import Products from "@/components/Products";
+import Offers from "@/components/Offers";
 import Contact from "@/components/Contact";
 import "@/app/globals.css";
 import { useParams } from "next/navigation";
@@ -29,6 +30,9 @@ export default function Home() {
       </section>
       <section id="products">
         <Products />
+      </section>
+      <section id="offers">
+        <Offers />
       </section>
       <section id="contact">
         <Contact />

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Summer Sale",
+    "description": "Get 25% off on all vitamins and supplements for the summer season!",
+    "validUntil": "2023-08-31",
+    "image": "/Vitamins & Supplements.jpg",
+    "discount": "25%",
+    "category": "Wellness"
+  },
+  {
+    "id": 2,
+    "title": "Diabetes Care Package",
+    "description": "Special bundle for diabetes management - includes glucose monitor, test strips, and supplements at a discounted price.",
+    "validUntil": "2023-09-15",
+    "image": "/Diabetes Care.jpg",
+    "discount": "20%",
+    "category": "Chronic Conditions"
+  },
+  {
+    "id": 3,
+    "title": "Heart Health Promotion",
+    "description": "Buy any heart health medication and get a free blood pressure check and consultation.",
+    "validUntil": "2023-09-30",
+    "image": "/Heart Health.jpg",
+    "discount": "Free Consultation",
+    "category": "Cardiovascular"
+  },
+  {
+    "id": 4,
+    "title": "Skin Care Bundle",
+    "description": "Purchase any two skin care products and get the third one free!",
+    "validUntil": "2023-08-15",
+    "image": "/Skin Care Products.jpg",
+    "discount": "Buy 2 Get 1 Free",
+    "category": "Dermatology"
+  },
+  {
+    "id": 5,
+    "title": "Pain Relief Special",
+    "description": "15% discount on all pain relief medications and heat therapy products.",
+    "validUntil": "2023-10-31",
+    "image": "/Pain Relief Medications.jpg",
+    "discount": "15%",
+    "category": "Over-the-Counter"
+  },
+  {
+    "id": 6,
+    "title": "Cold & Flu Season Prep",
+    "description": "Stock up on cold and flu remedies before the season - 30% off when you buy a complete care package.",
+    "validUntil": "2023-11-15",
+    "image": "/Cold & Flu Remedies.jpg",
+    "discount": "30%",
+    "category": "Seasonal Care"
+  }
+]

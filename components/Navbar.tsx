@@ -64,6 +64,9 @@ export default function Navbar({ locale }: { locale: string }) {
               <a href="#products">Loading...</a>
             </li>
             <li>
+              <a href="#offers">Loading...</a>
+            </li>
+            <li>
               <a href="#contact">Loading...</a>
             </li>
             <li>
@@ -108,6 +111,11 @@ export default function Navbar({ locale }: { locale: string }) {
           <li>
             <a href="#products" onClick={handleLinkClick}>
               {t("products")}
+            </a>
+          </li>
+          <li>
+            <a href="#offers" onClick={handleLinkClick}>
+              {t("offers")}
             </a>
           </li>
           <li>

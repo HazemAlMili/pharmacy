@@ -5,8 +5,7 @@ import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
 import { Suspense } from "react";
 import { cairo } from "../fonts";
-import { NextIntlClientProvider } from "next-intl"; // ✅ لدعم الترجمة
-import "../globals.css";
+import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 
@@ -24,14 +23,15 @@ export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "ar" }];
 }
 
-export default async function RootLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>; // Note the Promise type
 }) {
-  const locale = params.locale || "en";
+  // First await the entire params object
+  const { locale } = await params;
 
   // Validate locale
   if (!["en", "ar"].includes(locale)) {
@@ -48,7 +48,7 @@ export default async function RootLayout({
     >
       <body>
         <Suspense fallback={<div>Loading...</div>}>
-          <NextIntlClientProvider locale={params.locale} messages={messages}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
             <div className="animated-background">
               <div className="gradient-overlay"></div>
               <div className="floating-shapes">
