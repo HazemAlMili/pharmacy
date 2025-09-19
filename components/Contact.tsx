@@ -98,64 +98,122 @@ export default function Contact() {
         <div className={styles.contactContent}>
           {/* ✅ Info Cards */}
           <div className={styles.contactInfo}>
-            <div className={styles.infoCard}>
-              <div className={styles.infoIcon}>📍</div>
-              <div className={styles.infoContent}>
-                <h3>{t("addressTitle")}</h3>
-                <p>
-                  {t("address")
-                    .split("\n")
-                    .map((line, index) => (
-                      <span key={index}>
-                        {line}
-                        {index < t("address").split("\n").length - 1 && <br />}
-                      </span>
-                    ))}
-                </p>
+            <a href="" target="_blank">
+              <div className={styles.infoCard}>
+                <div className={styles.infoIcon}>📍</div>
+                <div className={styles.infoContent}>
+                  <h3>{t("addressTitle")}</h3>
+                  <p>
+                    {t("address")
+                      .split("\n")
+                      .map((line, index) => (
+                        <span key={index}>
+                          {line}
+                          {index < t("address").split("\n").length - 1 && (
+                            <br />
+                          )}
+                        </span>
+                      ))}
+                  </p>
+                </div>
               </div>
-            </div>
-
-            <div className={styles.infoCard}>
-              <div className={styles.infoIcon}>📞</div>
-              <div className={styles.infoContent}>
-                <h3>{t("phoneTitle")}</h3>
-                <p>
-                  {t("phone")
-                    .split("\n")
-                    .map((line, index) => (
-                      <span key={index}>
-                        {line}
-                        {index < t("phone").split("\n").length - 1 && <br />}
-                      </span>
-                    ))}
-                </p>
+            </a>
+            <a href="tel:01153827570" target="_blank">
+              <div className={styles.infoCard}>
+                <div className={styles.infoIcon}>📞</div>
+                <div className={styles.infoContent}>
+                  <h3>{t("phoneTitle")}</h3>
+                  <p>
+                    {t("phone")
+                      .split("\n")
+                      .map((line, index) => (
+                        <span key={index}>
+                          {line}
+                          {index < t("phone").split("\n").length - 1 && <br />}
+                        </span>
+                      ))}
+                  </p>
+                </div>
               </div>
-            </div>
-
-            <div className={styles.infoCard}>
-              <div className={styles.infoIcon}>✉️</div>
-              <div className={styles.infoContent}>
-                <h3>{t("emailTitle")}</h3>
-                <p>{t("email")}</p>
+            </a>
+            <a href="tel:+0233907788">
+              <div className={styles.infoCard}>
+                <div className={styles.infoIcon}>📞</div>
+                <div className={styles.infoContent}>
+                  <h3>{t("landPhoneTitle")}</h3>
+                  <p>
+                    {t("landPhone")
+                      .split("\n")
+                      .map((line, index) => (
+                        <span key={index}>
+                          {line}
+                          {index < t("landPhone").split("\n").length - 1 && (
+                            <br />
+                          )}
+                        </span>
+                      ))}
+                  </p>
+                </div>
               </div>
-            </div>
-
-            <div className={styles.infoCard}>
-              <div className={styles.infoIcon}>🕒</div>
-              <div className={styles.infoContent}>
-                <h3>{t("hoursTitle")}</h3>
-                <p>
-                  {t("hours")
-                    .split("\n")
-                    .map((line, index) => (
-                      <span key={index}>
-                        {line}
-                        {index < t("hours").split("\n").length - 1 && <br />}
-                      </span>
-                    ))}
-                </p>
+            </a>
+            <a href={`https://wa.me/${t("whatsApp")}`} target="_blank">
+              <div className={styles.infoCard}>
+                <div className={styles.infoIcon}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                </div>
+                <div className={styles.infoContent}>
+                  <h3>{t("whatsAppTitle")}</h3>
+                  <p>
+                    {t("whatsApp")
+                      .split("\n")
+                      .map((line, index) => (
+                        <span key={index}>
+                          {line}
+                          {index < t("whatsApp").length - 1 && <br />}
+                        </span>
+                      ))}
+                  </p>
+                </div>
               </div>
-            </div>
+            </a>
+            <a href={`mailto:${t("email")}`} target="_blank">
+              <div className={styles.infoCard}>
+                <div className={styles.infoIcon}>✉️</div>
+                <div className={styles.infoContent}>
+                  <h3>{t("emailTitle")}</h3>
+                  <p>{t("email")}</p>
+                </div>
+              </div>
+            </a>
+            
+              <div className={styles.infoCard}>
+                <div className={styles.infoIcon}>🕒</div>
+                <div className={styles.infoContent}>
+                  <h3>{t("hoursTitle")}</h3>
+                  <p>
+                    {t("hours")
+                      .split("\n")
+                      .map((line, index) => (
+                        <span key={index}>
+                          {line}
+                          {index < t("hours").split("\n").length - 1 && <br />}
+                        </span>
+                      ))}
+                  </p>
+                </div>
+              </div>
           </div>
 
           {/* ✅ Contact Form */}
