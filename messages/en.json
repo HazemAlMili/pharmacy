@@ -107,17 +107,17 @@
     "title": "Contact Us",
     "subtitle": "Get in touch with our healthcare professionals for any questions or concerns",
     "addressTitle": "Address",
-    "address": "Alahram Gardens\nMedical District, City 12345",
+    "address": "The Second Old Gate 261 H High Pressure Street... Hadaeq Alahram, Giza, Egypt",
     "phoneTitle": "Phone",
     "phone": "0102 953 5053",
     "whatsAppTitle": "WhatsApp",
-    "whatsApp": "+201153827570",
+    "whatsApp": "+20 1153 827570",
     "landPhoneTitle": "LandPhone",
     "landPhone": " 0233907788",
     "emailTitle": "Email",
     "email": "alaminpharmacy54@gmail.com",
     "hoursTitle": "Working Hours",
-    "hours": "Monday - Friday: 8:00 AM - 8:00 PM\nSaturday: 9:00 AM - 6:00 PM\nSunday: 10:00 AM - 4:00 PM",
+    "hours": "Sunday - Thursday: 8:00 AM - 3:00 AM \n Friday: 10:00 AM - 2:00 AM",
     "formName": "Full Name",
     "formEmail": "Email Address",
     "formPhone": "Phone Number",
@@ -134,5 +134,10 @@
     "nameError": "❌ Name must be 3-30 letters only.",
     "emailError": "❌ Invalid email address.",
     "phoneError": "❌ Phone must be 8-15 digits."
+  },
+  "footer": {
+    "name": "Al-Amin Pharmacy",
+    "slogan": "Your Health, Our Priority.",
+    "rights": "All rights reserved."
   }
 }

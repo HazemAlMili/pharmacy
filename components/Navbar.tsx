@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Globe } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 import styles from "./Navbar.module.css";
 
 export default function Navbar({ locale }: { locale: string }) {
@@ -70,6 +71,9 @@ export default function Navbar({ locale }: { locale: string }) {
               <a href="#contact">Loading...</a>
             </li>
             <li>
+              <ThemeToggle />
+            </li>
+            <li>
               <a className={styles.langBtn}>
                 <Globe size={20} />
               </a>
@@ -83,10 +87,6 @@ export default function Navbar({ locale }: { locale: string }) {
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        <div className={styles.logo}>
-          <h2>Al-Amin Pharmacy</h2>
-        </div>
-
         <ul className={`${styles.navLinks} ${isMenuOpen ? styles.active : ""}`}>
           <li>
             <a href="#home" onClick={handleLinkClick}>
@@ -108,6 +108,12 @@ export default function Navbar({ locale }: { locale: string }) {
               {t("features")}
             </a>
           </li>
+
+          {/* Logo in center of links */}
+          <li className={styles.logoInMenu}>
+            <h2>Al-Amin Pharmacy</h2>
+          </li>
+
           <li>
             <a href="#products" onClick={handleLinkClick}>
               {t("products")}
@@ -124,13 +130,24 @@ export default function Navbar({ locale }: { locale: string }) {
             </a>
           </li>
 
-          {/* زر تبديل اللغة */}
-          <li>
+          {/* Mobile Menu Buttons */}
+          <li className={styles.mobileButtons}>
+            <ThemeToggle />
             <a onClick={toggleLanguage} className={styles.langBtn}>
               <Globe size={20} />
             </a>
           </li>
         </ul>
+
+        {/* Right Side - Remaining Links and Buttons */}
+        <div className={styles.rightSection}>
+          <div className={styles.buttons}>
+            <ThemeToggle />
+            <a onClick={toggleLanguage} className={styles.langBtn}>
+              <Globe size={20} />
+            </a>
+          </div>
+        </div>
 
         <button
           className={styles.menuToggle}
@@ -141,6 +158,10 @@ export default function Navbar({ locale }: { locale: string }) {
           <span></span>
           <span></span>
         </button>
+        {/* Logo when screen is Mobile */}
+        <div className={styles.logoOutMenu}>
+          <h2>Al-Amin Pharmacy</h2>
+        </div>
       </div>
     </nav>
   );

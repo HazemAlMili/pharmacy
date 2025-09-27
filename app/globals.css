@@ -5,106 +5,104 @@
 
 :root {
   --font-sans: var(--font-cairo), sans-serif;
-  /* Updated color tokens for healthcare/pharmacy theme with green, white, light blue palette */
-  --background: oklch(1 0 0);
-  /* Pure white */
-  --foreground: oklch(0.35 0 0);
-  /* Dark gray for text */
-  --card: oklch(0.98 0 0);
-  /* Very light gray for cards */
-  --card-foreground: oklch(0.25 0.15 160);
-  /* Emerald green for card text */
+  /* Updated color tokens for a vibrant, modern pharmacy theme with orange and neutral tones */
+  --background: oklch(0.99 0.005 90);
+  /* Almost white */
+  --foreground: oklch(0.2 0.03 70);
+  /* Dark brown/gray for text */
+  --card: oklch(1 0 0);
+  /* White for cards */
+  --card-foreground: oklch(0.2 0.03 70);
+  /* Dark brown/gray for card text */
   --popover: oklch(1 0 0);
   /* White for popovers */
-  --popover-foreground: oklch(0.35 0 0);
-  /* Dark gray for popover text */
-  --primary: oklch(0.55 0.15 160);
-  /* Emerald green primary */
-  --primary-foreground: oklch(1 0 0);
-  /* White text on primary */
-  --secondary: oklch(0.65 0.12 180);
-  /* Light teal secondary */
-  --secondary-foreground: oklch(1 0 0);
-  /* White text on secondary */
-  --muted: oklch(0.96 0 0);
-  /* Light muted background */
-  --muted-foreground: oklch(0.45 0 0);
-  /* Medium gray for muted text */
-  --accent: oklch(0.6 0.12 180);
-  /* Teal accent color */
-  --accent-foreground: oklch(1 0 0);
-  /* White text on accent */
+  --popover-foreground: oklch(0.2 0.03 70);
+  /* Dark brown/gray for popover text */
+  --primary: oklch(0.702 0.183 69.33);
+  /* #f69817 */
+  --primary-foreground: oklch(0.15 0.03 70);
+  /* Dark brown text on primary */
+  --secondary: oklch(0.9 0.08 70);
+  /* Light orange/peach */
+  --secondary-foreground: oklch(0.2 0.03 70);
+  /* Dark brown/gray text on secondary */
+  --muted: oklch(0.96 0.01 90);
+  /* Very light gray */
+  --muted-foreground: oklch(0.4 0.03 80);
+  /* Medium gray-brown for muted text */
+  --accent: oklch(0.75 0.2 70);
+  /* Saturated orange accent */
+  --accent-foreground: oklch(0.15 0.03 70);
+  /* Dark brown text on accent */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0 0);
-  /* Light gray borders */
-  --input: oklch(0.98 0 0);
+  --border: oklch(0.92 0.02 80);
+  /* Light gray-brown borders */
+  --input: oklch(0.98 0.01 80);
   /* Very light input background */
-  --ring: oklch(0.6 0.12 180);
-  /* Teal focus ring */
-  --chart-1: oklch(0.55 0.15 160);
-  /* Primary green for charts */
-  --chart-2: oklch(0.65 0.12 180);
-  /* Teal for charts */
-  --chart-3: oklch(0.7 0.08 200);
-  /* Light blue for charts */
-  --chart-4: oklch(0.8 0.05 160);
-  /* Very light green */
-  --chart-5: oklch(0.45 0 0);
-  /* Dark gray */
+  --ring: oklch(0.702 0.183 69.33);
+  /* Primary orange focus ring */
+  --chart-1: oklch(0.702 0.183 69.33);
+  /* Primary orange for charts */
+  --chart-2: oklch(0.85 0.1 75);
+  /* Light orange for charts */
+  --chart-3: oklch(0.6 0.15 65);
+  /* Deeper orange for charts */
+  --chart-4: oklch(0.9 0.08 70);
+  /* Very light orange */
+  --chart-5: oklch(0.4 0.07 70);
+  /* Dark brown */
   --radius: 1rem;
-  /* Slightly smaller radius for clean look */
-  --sidebar: oklch(0.98 0 0);
-  --sidebar-foreground: oklch(0.35 0 0);
-  --sidebar-primary: oklch(0.55 0.15 160);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.6 0.12 180);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.9 0 0);
-  --sidebar-ring: oklch(0.6 0.12 180);
+  --sidebar: oklch(0.99 0.005 90);
+  --sidebar-foreground: oklch(0.2 0.03 70);
+  --sidebar-primary: oklch(0.702 0.183 69.33);
+  --sidebar-primary-foreground: oklch(0.15 0.03 70);
+  --sidebar-accent: oklch(0.75 0.2 70);
+  --sidebar-accent-foreground: oklch(0.15 0.03 70);
+  --sidebar-border: oklch(0.92 0.02 80);
+  --sidebar-ring: oklch(0.702 0.183 69.33);
 }
 
 .dark {
-  --background: oklch(0.08 0 0);
-  /* Very dark background */
-  --foreground: oklch(0.95 0 0);
-  /* Light text */
-  --card: oklch(0.12 0 0);
-  /* Dark card background */
-  --card-foreground: oklch(0.7 0.12 160);
-  /* Light green for cards */
-  --popover: oklch(0.12 0 0);
-  --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.6 0.15 160);
-  /* Brighter green for dark mode */
-  --primary-foreground: oklch(0.08 0 0);
+  --background: oklch(0.15 0.02 70);
+  /* Very dark desaturated brown */
+  --foreground: oklch(0.95 0.01 90);
+  /* Light off-white */
+  --card: oklch(0.2 0.02 70);
+  /* Darker card background */
+  --card-foreground: oklch(0.95 0.01 90);
+  --popover: oklch(0.2 0.02 70);
+  --popover-foreground: oklch(0.95 0.01 90);
+  --primary: oklch(0.75 0.18 70);
+  /* Brighter orange for dark mode */
+  --primary-foreground: oklch(0.15 0.03 70);
   /* Dark text on primary */
-  --secondary: oklch(0.2 0 0);
-  /* Dark secondary */
-  --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.65 0.12 180);
-  /* Bright teal accent */
-  --accent-foreground: oklch(0.08 0 0);
+  --secondary: oklch(0.3 0.04 70);
+  /* Dark muted orange */
+  --secondary-foreground: oklch(0.95 0.01 90);
+  --muted: oklch(0.25 0.03 70);
+  --muted-foreground: oklch(0.7 0.02 90);
+  --accent: oklch(0.75 0.18 70);
+  /* Bright orange accent */
+  --accent-foreground: oklch(0.15 0.03 70);
   --destructive: oklch(0.6 0.2 25);
   --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.2 0 0);
-  --input: oklch(0.15 0 0);
-  --ring: oklch(0.65 0.12 180);
-  --chart-1: oklch(0.6 0.15 160);
-  --chart-2: oklch(0.65 0.12 180);
-  --chart-3: oklch(0.7 0.08 200);
-  --chart-4: oklch(0.5 0.1 160);
-  --chart-5: oklch(0.7 0 0);
-  --sidebar: oklch(0.1 0 0);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.6 0.15 160);
-  --sidebar-primary-foreground: oklch(0.08 0 0);
-  --sidebar-accent: oklch(0.65 0.12 180);
-  --sidebar-accent-foreground: oklch(0.08 0 0);
-  --sidebar-border: oklch(0.2 0 0);
-  --sidebar-ring: oklch(0.65 0.12 180);
+  --border: oklch(0.3 0.02 70);
+  --input: oklch(0.25 0.03 70);
+  --ring: oklch(0.75 0.18 70);
+  --chart-1: oklch(0.75 0.18 70);
+  --chart-2: oklch(0.8 0.12 70);
+  --chart-3: oklch(0.6 0.15 65);
+  --chart-4: oklch(0.5 0.1 70);
+  --chart-5: oklch(0.7 0.05 90);
+  --sidebar: oklch(0.15 0.02 70);
+  --sidebar-foreground: oklch(0.95 0.01 90);
+  --sidebar-primary: oklch(0.75 0.18 70);
+  --sidebar-primary-foreground: oklch(0.15 0.03 70);
+  --sidebar-accent: oklch(0.75 0.18 70);
+  --sidebar-accent-foreground: oklch(0.15 0.03 70);
+  --sidebar-border: oklch(0.3 0.02 70);
+  --sidebar-ring: oklch(0.75 0.18 70);
 }
 
 @theme inline {
@@ -163,9 +161,19 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
-    /* Account for fixed navbar height */
+    /* Account for fixe"use client";
+
+import * as React from "react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { type ThemeProviderProps } from "next-themes/dist/types";
+
+export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+}
+d navbar height */
   }
 }
+
 
 /* Added custom pharmacy-specific utility classes */
 .pharmacy-gradient {

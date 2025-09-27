@@ -1,37 +1,96 @@
 .navbar {
   background: var(--background);
-  box-shadow: 0 2px 10px oklch(0.55 0.15 160 / 0.1);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   transition: all 0.3s ease;
+  display: flex;
+
+  /* backdrop-filter: blur(10px); */
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
+  position: relative;
+  width: 100%;
 }
 
 .logo h2 {
   color: var(--primary);
-  font-size: 1.5rem;
+  font-size: 20px;
   font-weight: 700;
   margin: 0;
+  transition: color 0.3s ease;
+}
+
+.logo h2:hover {
+  color: var(--accent);
+}
+
+.logoInMenu h2 {
+  color: var(--primary);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.logoOutMenu h2 {
+  color: var(--primary);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  transition: color 0.3s ease;
+  display: none;
+}
+
+.logoInMenu h2:hover {
+  color: var(--accent);
 }
 
 .navLinks {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+  margin-right: 0;
+  padding: 0;
+  gap: 2rem;
+  flex: 1;
+}
+
+.rightLinks {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
   gap: 2rem;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mobileButtons {
+  display: none;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
 }
 
 .navLinks li a {
@@ -64,13 +123,53 @@
   width: 100%;
 }
 
+.rightLinks li a {
+  color: var(--foreground);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  scroll-behavior: smooth;
+  cursor: pointer;
+}
+
+.rightLinks li a:hover {
+  color: var(--primary);
+}
+
+
+
+/* Language button styles */
+.langBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.langBtn:hover {
+  background-color: var(--muted);
+  transform: scale(1.05);
+}
+
+.langBtn:active {
+  transform: scale(0.95);
+}
+
 .menuToggle {
   display: none;
   flex-direction: column;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
 }
 
 .menuToggle span {
@@ -81,7 +180,7 @@
   transition: 0.3s;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .navLinks {
     position: fixed;
     top: 70px;
@@ -94,20 +193,52 @@
     align-items: center;
     padding-top: 2rem;
     transition: left 0.3s ease;
-    box-shadow: 0 2px 10px oklch(0.55 0.15 160 / 0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid var(--border);
+    flex: none;
+  }
+
+  .logoOutMenu h2 {
+    display: block;
   }
 
   .navLinks.active {
     left: 0;
+    gap: 15px;
+    width: 40%;
   }
 
   .navLinks li {
-    margin: 0.5rem;
+    margin: 0.5rem auto;
+    list-style: none;
+  }
+
+  .navLinks li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .rightSection {
+    display: none;
+  }
+
+
+  .logoInMenu {
+    display: none;
+  }
+
+  .mobileButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .menuToggle {
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
-
-

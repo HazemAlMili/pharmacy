@@ -8,6 +8,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { Suspense } from "react";
 import { NextIntlClientProvider } from "next-intl"; // 🟢 استخدام next-intl
 import { getMessages } from "next-intl/server";
+import { ThemeProvider } from "../components/ThemeProvider";
+import ScrollToTop from "../components/ScrollToTop";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -27,7 +29,7 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>; // Updated to match [locale]/layout.tsx
 }) {
   // First await the entire params object
-  const { locale } = await params || { locale: "en" };
+  const { locale } = (await params) || { locale: "en" };
   const messages = await getMessages({ locale });
 
   return (
@@ -39,45 +41,53 @@ export default async function RootLayout({
     >
       <body>
         <Suspense fallback={<div>Loading...</div>}>
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            <div className="animated-background">
-              <div className="gradient-overlay"></div>
-              <div className="floating-shapes">
-                <div className="shape shape-1"></div>
-                <div className="shape shape-2"></div>
-                <div className="shape shape-3"></div>
-                <div className="shape shape-4"></div>
-                <div className="shape shape-5"></div>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <NextIntlClientProvider locale={locale} messages={messages}>
+              <div className="animated-background">
+                <div className="gradient-overlay"></div>
+                <div className="floating-shapes">
+                  <div className="shape shape-1"></div>
+                  <div className="shape shape-2"></div>
+                  <div className="shape shape-3"></div>
+                  <div className="shape shape-4"></div>
+                  <div className="shape shape-5"></div>
+                </div>
+                <div className="floating-particles">
+                  <div className="particle"></div>
+                  <div className="particle"></div>
+                  <div className="particle"></div>
+                  <div className="particle"></div>
+                  <div className="particle"></div>
+                  <div className="particle"></div>
+                  <div className="particle"></div>
+                  <div className="particle"></div>
+                  <div className="particle"></div>
+                  <div className="particle"></div>
+                </div>
+                <div className="medical-crosses">
+                  <div className="medical-cross cross-1"></div>
+                  <div className="medical-cross cross-2"></div>
+                  <div className="medical-cross cross-3"></div>
+                  <div className="medical-cross cross-4"></div>
+                </div>
+                <div className="pill-capsules">
+                  <div className="pill-capsule pill-1"></div>
+                  <div className="pill-capsule pill-2"></div>
+                  <div className="pill-capsule pill-3"></div>
+                </div>
+                <div className="heartbeat-pulse"></div>
               </div>
-              <div className="floating-particles">
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-                <div className="particle"></div>
-              </div>
-              <div className="medical-crosses">
-                <div className="medical-cross cross-1"></div>
-                <div className="medical-cross cross-2"></div>
-                <div className="medical-cross cross-3"></div>
-                <div className="medical-cross cross-4"></div>
-              </div>
-              <div className="pill-capsules">
-                <div className="pill-capsule pill-1"></div>
-                <div className="pill-capsule pill-2"></div>
-                <div className="pill-capsule pill-3"></div>
-              </div>
-              <div className="heartbeat-pulse"></div>
-            </div>
 
-            {children}
-            <Analytics />
-          </NextIntlClientProvider>
+              {children}
+              <ScrollToTop />
+              <Analytics />
+            </NextIntlClientProvider>
+          </ThemeProvider>
         </Suspense>
       </body>
     </html>

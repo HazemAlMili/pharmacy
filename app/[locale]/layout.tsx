@@ -10,7 +10,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "v0 App",
+  title: "Al-Amin Phamacy",
   description: "Created with v0",
   generator: "v0.app",
 };

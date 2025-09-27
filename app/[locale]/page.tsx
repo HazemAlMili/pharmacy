@@ -7,6 +7,7 @@ import Features from "@/components/Features";
 import Products from "@/components/Products";
 import Offers from "@/components/Offers";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import "@/app/globals.css";
 import { useParams } from "next/navigation";
 
@@ -37,6 +38,7 @@ export default function Home() {
       <section id="contact">
         <Contact />
       </section>
+      <Footer />
     </main>
   );
 }
