@@ -1,5 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import styles from "./Footer.module.css";
 import { Facebook, Instagram } from "lucide-react";
 
@@ -11,7 +12,15 @@ export default function Footer() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.info}>
-            <h3 className={styles.name}>{t("name")}</h3>
+            <h3 className={styles.name}>
+              <Image
+                src="/logo.png"
+                alt="pharmacy's Logo"
+                width={100}
+                height={100}
+                className={styles.heroImage}
+              />
+            </h3>
             <p className={styles.slogan}>{t("slogan")}</p>
           </div>
           <div className={styles.social}>
@@ -23,7 +32,7 @@ export default function Footer() {
             >
               <Facebook size={24} />
             </a>
-            
+
             <a
               href="https://www.instagram.com"
               target="_blank"

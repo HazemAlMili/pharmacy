@@ -8,8 +8,11 @@
   right: 0;
   z-index: 1000;
   transition: all 0.3s ease;
+  height: 100px;;
   display: flex;
-
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 0 2rem; */
   /* backdrop-filter: blur(10px); */
 }
 
@@ -25,7 +28,7 @@
   width: 100%;
 }
 
-.logo h2 {
+.logo {
   color: var(--primary);
   font-size: 20px;
   font-weight: 700;
@@ -45,7 +48,7 @@
   transition: color 0.3s ease;
 }
 
-.logoOutMenu h2 {
+.logoOutMenu{
   color: var(--primary);
   font-size: 20px;
   font-weight: 700;
@@ -198,7 +201,7 @@
     flex: none;
   }
 
-  .logoOutMenu h2 {
+  .logoOutMenu {
     display: block;
   }
 

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Globe } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
@@ -46,7 +47,7 @@ export default function Navbar({ locale }: { locale: string }) {
       <nav className={styles.navbar}>
         <div className={styles.container}>
           <div className={styles.logo}>
-            <h2>Al-Amin Pharmacy</h2>
+            
           </div>
           <ul className={styles.navLinks}>
             <li>
@@ -111,7 +112,13 @@ export default function Navbar({ locale }: { locale: string }) {
 
           {/* Logo in center of links */}
           <li className={styles.logoInMenu}>
-            <h2>Al-Amin Pharmacy</h2>
+            <Image
+              src="/logo.png"
+              alt="pharmacy's Logo"
+              width={100}
+              height={100}
+              className={styles.heroImage}
+            />
           </li>
 
           <li>
@@ -160,7 +167,13 @@ export default function Navbar({ locale }: { locale: string }) {
         </button>
         {/* Logo when screen is Mobile */}
         <div className={styles.logoOutMenu}>
-          <h2>Al-Amin Pharmacy</h2>
+          <Image
+            src="/logo.png"
+            alt="pharmacy's Logo"
+            width={100}
+            height={100}
+            className={styles.heroImage}
+          />
         </div>
       </div>
     </nav>
